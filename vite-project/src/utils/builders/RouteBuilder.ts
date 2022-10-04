@@ -62,9 +62,14 @@ export default class RouteBuilder implements IRouteBuilder {
         return this
     }
 
+    addSubRoute(subRoute:any,prefix:string = this.url){
 
-    addSubRoute(){
+        // const tempsubRoute =
 
+        return {
+            ...this,
+            ...subRoute
+        }
     }
 
 

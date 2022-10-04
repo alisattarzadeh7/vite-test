@@ -1,15 +1,8 @@
 import RouteBuilder, {IRouteBuilder} from "../utils/builders/RouteBuilder";
 import Dashboard from "../Views/Dashboard";
+import {IDashboardIdRoute} from "../utils/interfaces/routeInterfaces";
 
 
-interface IDashboardIdRoute extends IRouteBuilder {
-    params: { dashId: string }
-    setRouteParam: (params:IDashboardIdRoute['params']) => IDashboardIdRoute
-}
-
-
-
-export const dashboardRoute = RouteBuilder.create('/dashboard',{view:Dashboard})
-export const dashboardIdRoute = RouteBuilder.create('/dashboard/:dashId',{view:Dashboard}).addSubRoute({
-    dashboardRoute
-}) as IDashboardIdRoute
+export const dashboardIdRoute = RouteBuilder.create('/dashboard/:dashId', {view: Dashboard}).addSubRoute({
+    dashboardRoute: RouteBuilder.create(`/dashboard`, {view: Dashboard}),
+}, '/test') as IDashboardIdRoute;

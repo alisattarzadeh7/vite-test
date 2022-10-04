@@ -5,6 +5,7 @@ import {dashboardIdRoute} from "./routes";
 function App() {
 
     console.log('routes : ', dashboardIdRoute.setRouteParam({ dashId:'12'}).navigate())
+    // console.log('routes : ', dashboardIdRoute.setRouteParam({dashId:'12'}).navigate())
 
     return (
         <div className="App">
